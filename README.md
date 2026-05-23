@@ -60,6 +60,29 @@ Total: 16 bits per operand and result.
 | `clk` | Input | System clock |
 | `rst` | Input | Synchronous reset (returns to IDLE) |
 
+## Simulation Results
+
+Behavioural simulation run in EDA Playground (Icarus Verilog). Four test cases verified:
+
+| Test | num1 | num2 | Expected | Result |
+|---|---|---|---|---|
+| ADD 2.0 + 1.0 | `0x0400` | `0x0000` | 3.0 (`0x0600`) | ✓ |
+| ADD 4.0 + 2.0 | `0x0800` | `0x0400` | 6.0 (`0x0A00`) | ✓ |
+| MUL 2.0 × 1.0 | `0x0400` | `0x0000` | 2.0 (`0x0400`) | ✓ |
+| MUL 2.0 × 1.5 | `0x0400` | `0x0200` | 3.0 (`0x0600`) | ✓ |
+
+**Inputs**
+
+| num1 | num2 |
+|---|---|
+| ![num1 waveform](screenshots/waveform_num1.png) | ![num2 waveform](screenshots/waveform_num2.png) |
+
+**Outputs**
+
+| Adder (floA) | Multiplier (floM) |
+|---|---|
+| ![adder output waveform](screenshots/waveform_add.png) | ![multiplier output waveform](screenshots/waveform_mult.png) |
+
 ## Getting Started
 
 1. Open `addmult/addmult.xpr` in Xilinx Vivado 2019.1 or later
